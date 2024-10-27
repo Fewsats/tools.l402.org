@@ -27,15 +27,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         row.className = 'bg-white rounded-lg border border-notion-border hover:bg-notion-hover transition-colors duration-100';
         row.innerHTML = `
             <div class="aspect-[1.5] w-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-t-lg overflow-hidden">
-                <div class="w-full h-full flex items-center justify-center p-6">
-                    <svg class="w-full h-full" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="70" y="20" width="100" height="120" rx="8" fill="#E2E8F0"/>
-                        <rect x="82" y="32" width="76" height="76" rx="4" fill="#93C5FD"/>
-                        <circle cx="120" cy="70" r="24" fill="#3B82F6"/>
-                        <path d="M110 70h20M120 60v20" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                        <rect x="82" y="116" width="76" height="12" rx="2" fill="#93C5FD"/>
-                        <circle cx="120" cy="122" r="3" fill="#3B82F6"/>
-                        <path d="M40 40c40-20 120-20 160 0M40 120c40 20 120 20 160 0" stroke="#CBD5E1" stroke-width="2"/>
+                <div class="w-full h-full flex items-center justify-center p-8">
+                    <svg class="w-full h-full" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Main Circle -->
+                        <circle cx="100" cy="80" r="50" fill="#E2E8F0" stroke="#3B82F6" stroke-width="2"/>
+                        
+                        <!-- Connection Lines -->
+                        <path d="M100 30L100 10M100 150L100 130M30 80L10 80M190 80L170 80" 
+                              stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+                        
+                        <!-- Inner Elements -->
+                        <rect x="80" y="60" width="40" height="40" rx="4" fill="#3B82F6"/>
+                        <path d="M90 80H110M100 70V90" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        
+                        <!-- Decorative Dots -->
+                        <circle cx="40" cy="40" r="4" fill="#93C5FD"/>
+                        <circle cx="160" cy="40" r="4" fill="#93C5FD"/>
+                        <circle cx="40" cy="120" r="4" fill="#93C5FD"/>
+                        <circle cx="160" cy="120" r="4" fill="#93C5FD"/>
                     </svg>
                 </div>
             </div>
