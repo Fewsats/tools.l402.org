@@ -3,9 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>L402 Tools Directory</title>
+        <title>L402 Tools</title>
+        <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Tailwind Configuration -->
         <script>
             tailwind.config = {
                 theme: {
@@ -15,31 +22,55 @@
                             'notion-gray': '#F7F6F3',
                             'notion-hover': '#EBEAEA',
                             'notion-border': '#E3E3E1',
-                            'notion-text': '#787774'
+                            'notion-text': '#787774',
+                            'notion-bg': '#FFFFFF',
+                            'notion-overlay': 'rgba(55, 53, 47, 0.09)',
+                            'notion-highlight': '#F1F1EF'
                         },
                         fontFamily: {
                             'notion': ['Inter', 'sf pro display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                        },
+                        boxShadow: {
+                            'notion': 'rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px',
                         }
                     }
                 }
             }
+
+            // Add Tippy theme styles
+            window.addEventListener('DOMContentLoaded', () => {
+                const style = document.createElement('style');
+                style.textContent = `
+                    .tippy-box[data-theme~='notion'] {
+                        background-color: #37352F;
+                        color: white;
+                        font-size: 12px;
+                        padding: 2px 6px;
+                        border-radius: 4px;
+                        font-family: Inter, sans-serif;
+                    }
+                    .tippy-box[data-theme~='notion'][data-placement^='top'] > .tip
+                `;
+                document.head.appendChild(style);
+            });
         </script>
     </head>
     <body class="font-notion bg-white">
         <div class="min-h-screen">
             <header class="fixed w-full bg-white/50 backdrop-blur-sm border-b border-notion-border z-10">
                 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between items-center h-14">
-                        <h1 class="text-xl font-semibold text-notion-black">L402 Tools Directory</h1>
+                    <div class="flex items-center h-14">
+                        <div class="flex items-center space-x-3">
+                            <img src="img/favicon.svg" alt="L402 Logo" class="w-6 h-6">
+                            <h1 class="text-xl font-semibold text-notion-black">L402 Tools</h1>
+                        </div>
                     </div>
                 </div>
             </header>
             
             <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
-                <div class="bg-white rounded-lg">
-                    <div id="tools-list" class="divide-y divide-notion-border">
-                        <!-- Tools will be dynamically inserted here -->
-                    </div>
+                <div class="grid grid-cols-3 gap-6" id="tools-list">
+                    <!-- Tools will be dynamically inserted here -->
                 </div>
             </main>
         </div>
